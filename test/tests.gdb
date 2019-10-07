@@ -47,56 +47,6 @@ test "PINA: 0x00, PINB: 0x00 => PORTC: 0"
     expectPORTC 0
     checkResult
 
-test "PINA: 0x0F, PINB: 0x00 => PORTC: 0x04"
-    setPINA 0x0F
-    setPINB 0x00
-    continue 5
-    expectPORTC 0x04
-    printPINA
-    printPINB
-    checkResult
-
-test "PINA: 0x0F, PINB: 0x0F => PORTC: 0x08"
-    setPINA 0x0F
-    setPINB 0x0F
-    continue 5
-    expectPORTC 0x08
-    checkResult
-
-test "PINA: 0xFF, PINB: 0x0F => PORTC: 0x0C"
-    setPINA 0xFF
-    setPINB 0x0F
-    continue 5
-    expectPORTC 0x0C
-    checkResult
-
-test "PINA: 0xFF, PINB: 0xFF => PORTC: 0x10"
-    setPINA 0xFF
-    setPINB 0xFF
-    continue 5
-    expectPORTC 0x10
-    checkResult
-
-test "PINA: 0x8D, PINB: 0x01 => PORTC: 0x05"
-    setPINA 0x8D
-    setPINB 0x01
-    continue 5
-    expectPORTC 0x05
-    checkResult
-
-test "PINA: 0x04, PINB: 0x9B => PORTC: 0x06"
-    setPINA 0x04
-    setPINB 0x9B
-    continue 5
-    expectPORTC 0x06
-    checkResult
-
-test "PINA: 0xEA, PINB: 0x3F => PORTC: 0x0C"
-    setPINA 0xEA
-    setPINB 0x3F
-    continue 5
-    expectPORTC 0x0B
-    checkResult
 
 # Report on how many tests passed/tests ran
 set $passed=$tests-$failed
