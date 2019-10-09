@@ -1,5 +1,5 @@
 /*	Author: Andrew Bazua [abazu001]
- *  Partner(s) Name: 
+ *  Partner(s) Name:
  *	Lab Section:
  *	Assignment: Lab #03  Exercise #2
  *	Exercise Description: [ car has a fuel-level sensor that sets PA3..PA0 to a value between 0 (empty)
@@ -27,57 +27,20 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
         tmpA = PINA;
-        
-        switch (tmpA) {
-            case 0x00 :
-                tmpC = 0x40;
-                break;
-            case 0x01 :
-                tmpC = 0x60;
-                break;
-            case 0x02 :
-                tmpC = 0x60;
-                break;
-            case 0x03 :
-                tmpC = 0x70;
-                break;
-            case 0x04 :
-                tmpC = 0x70;
-                break;
-            case 0x05 :
-                tmpC = 0x38;
-                break;
-            case 0x06 :
-                tmpC = 0x38;
-                break;
-            case  0x07 :
-                tmpC = 0x39;
-                break;
-            case 0x08 :
-                tmpC = 0x39;
-                break;
-            case 0x09 :
-                tmpC = 0x39;
-                break;
-            case 0x0A :
-                tmpC = 0x3E;
-                break;
-            case 0x0B :
-                tmpC = 0x3E;
-                break;
-            case 0x0C :
-                tmpC = 0x3E;
-                break;
-            case 0x0D :
-                tmpC = 0x3F;
-                break;
-            case 0x0E :
-                tmpC = 0x3F;
-                break;
-            case 0x0F :
-                tmpC = 0x3F;
-                break;
-        }
+
+        if (tmpA == 0x00) { tmpC = 0x40; }
+
+        else if (tmpA <= 0x02) { tmpC = 0x60; }
+
+        else if (tmpA <= 0x04) { tmpC = 0x70; }
+
+        else if (tmpA <= 0x06) { tmpC = 0x38; }
+
+        else if (tmpA <= 0x09) { tmpC = 0x3C; }
+
+        else if (tmpA <= 0x0C) { tmpC = 0x03E; }
+
+        else { tmpC = 0x3F; }
 
         PORTC = tmpC;
 
