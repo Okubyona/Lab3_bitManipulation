@@ -88,6 +88,20 @@ test "PINA: 0x0F => PORTC: 0x3F"
     expectPORTC 0x3F
     checkResult
 
+test "PINA: 0x7F => PORTC: 0x3F"
+    setPINA 0x7F
+    continue 5
+    expectPORTC 0x3F
+    checkResult
+
+test "PINA: 0x3C => PORTC: 0xBE"
+    setPINA 0x3C
+    continue 5
+    expectPORTC 0xBE
+    checkResult
+
+
+
 # Report on how many tests passed/tests ran
 set $passed=$tests-$failed
 eval "shell echo Passed %d/%d tests.\n",$passed,$tests
