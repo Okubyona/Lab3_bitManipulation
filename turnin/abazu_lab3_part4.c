@@ -1,10 +1,10 @@
 /*	Author: Andrew Bazua [abazu001]
  *  Partner(s) Name:
- *	Lab Section: 023
+ *	Lab Section: 024
  *	Assignment: Lab #03  Exercise #4
- *	Exercise Description: [ Read an 8-bit value on PA7..PA0 and write that 
-        value on PB3..PB0PC7..PC4. That is to say,  take the upper nibble of PINA 
-        and map it to the lower nibble of PORTB, likewise take the lower nibble of 
+ *	Exercise Description: [ Read an 8-bit value on PA7..PA0 and write that
+        value on PB3..PB0PC7..PC4. That is to say,  take the upper nibble of PINA
+        and map it to the lower nibble of PORTB, likewise take the lower nibble of
         PINA and map it to the upper nibble of PORTC (PA7 -> PB3, PA6 -> PB2, … PA1
         -> PC5, PA0 -> PC4) ]
  *
@@ -24,13 +24,13 @@ int main(void) {
 
     unsigned char tmpA = 0x00;
     unsigned char tmpB = 0x00;
-    unsigned char tmpC = 0x00;    
+    unsigned char tmpC = 0x00;
 
     while (1) {
         tmpA = (PINA & 0xF0) >> 4;  // Shifts upper nibble to lower nibble
-        tmpB = tmpA;                // Assigns PINA's upper nibble to tmpB 
+        tmpB = tmpA;                // Assigns PINA's upper nibble to tmpB
                                     // --> PORTB's lower nibble
-        
+
         tmpA = (PINA & 0x0F) << 4;  // Shifts lower nibble to upper nibble
         tmpC = tmpA;                // Assigns PINA's lower nibble to tmpC
                                     // --> PORTC's upper nibble

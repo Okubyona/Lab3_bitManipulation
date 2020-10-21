@@ -16,24 +16,24 @@
 # altered in between executions (unless preconditions are used).
 tests = [
     {'description': '',
-        'steps': [ {'inputs': [('PINA',0x00)], 'iterations': 1 } ],
-        'expected': [('PORTC',0x40)],
+        'steps': [ {'inputs': [('PINA',0x3F)], 'iterations': 1 } ],
+        'expected': [('PORTB', 0x03),('PORTC',0xF0)],
     },
     {'description': '',
         'steps': [ {'inputs': [('PINA',0x02)], 'iterations': 1 } ],
-        'expected': [('PORTC',0x60)],
+        'expected': [('PORTB', 0x00),('PORTC',0x20)],
     },
     {'description': '',
-        'steps': [ {'inputs': [('PINA',0x04)], 'iterations': 1 } ],
-        'expected': [('PORTC',0x70)],
+        'steps': [ {'inputs': [('PINA',0x14)], 'iterations': 1 } ],
+        'expected': [('PORTB', 0x01),('PORTC',0x40)],
     },
     {'description': '',
-        'steps': [ {'inputs': [('PINA',0x3F)], 'iterations': 1 } ],
-        'expected': [('PORTC',0xBF)],
+        'steps': [ {'inputs': [('PINA',0xEF)], 'iterations': 1 } ],
+        'expected': [('PORTB', 0x0E),('PORTC',0xF0)],
     },
     ]
 
 # Optionally you can add a set of "watch" variables these need to be global or static and may need
 # to be scoped at the function level (for static variables) if there are naming conflicts. The
 # variables listed here will display everytime you hit (and stop at) a breakpoint
-watch = ['main::tmpA', 'PORTC']
+watch = ['main::tmpA', 'main::tmpB', 'PORTA', 'PORTB', 'PORTC']
