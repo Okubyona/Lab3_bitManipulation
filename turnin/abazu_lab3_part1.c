@@ -1,6 +1,6 @@
 /*	Author: Andrew Bazua [abazu001]
- *  Partner(s) Name: 
- *	Lab Section:
+ *  Partner(s) Name:
+ *	Lab Section: 024
  *	Assignment: Lab #03  Exercise #1
  *	Exercise Description: [optional - include for your own benefit]
  *
@@ -26,12 +26,12 @@ int main(void) {
     while (1) {
         tmpA = PINA;
         tmpB = PINB;
-        
+
         for (unsigned char i = 0; i < 8; ++i) {
             if (tmpA % 2 == 1) { ++cnt; }
             if (tmpB % 2 == 1) { ++cnt; }
             tmpA = tmpA >> 1;
-            tmpB = tmpB >> 1;      
+            tmpB = tmpB >> 1;
         }
 
         PORTC = cnt;
