@@ -1,6 +1,6 @@
 /*	Author: Andrew Bazua [abazu001]
  *  Partner(s) Name:
- *	Lab Section:
+ *	Lab Section: 024
  *	Assignment: Lab #03  Exercise #3
  *	Exercise Description: [ In addition to the above, PA4 is 1 if a key is in
         the ignition, PA5 is one if a driver is seated, and PA6 is 1 if the driver's

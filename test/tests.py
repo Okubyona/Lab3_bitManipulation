@@ -24,12 +24,12 @@ tests = [
         'expected': [('PORTC',0x60)],
     },
     {'description': '',
-        'steps': [ {'inputs': [('PINA',0x04), ('PINB', 0xFF)], 'iterations': 1 } ],
+        'steps': [ {'inputs': [('PINA',0x04)], 'iterations': 1 } ],
         'expected': [('PORTC',0x70)],
     },
     {'description': '',
-        'steps': [ {'inputs': [('PINA',0x0F), ('PINB', 0xFF)], 'iterations': 1 } ],
-        'expected': [('PORTC',0x3F)],
+        'steps': [ {'inputs': [('PINA',0x3F)], 'iterations': 1 } ],
+        'expected': [('PORTC',0xBF)],
     },
     ]
 

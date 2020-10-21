@@ -1,12 +1,11 @@
 /*	Author: Andrew Bazua [abazu001]
  *  Partner(s) Name:
- *	Lab Section:
- *	Assignment: Lab #03  Exercise #2
- *	Exercise Description: [ car has a fuel-level sensor that sets PA3..PA0 to a value between 0 (empty)
-        and 15 (full). A series of LEDs connected to PC5..PC0 should light to graphically indicate the
-        fuel level. If the fuel level is 1 or 2, PC5 lights. If the level is 3 or 4, PC5 and PC4 light.
-        Level 5-6 lights PC5..PC3. 7-9 lights PC5..PC2. 10-12 lights PC5..PC1. 13-15 lights PC5..PC0.
-        Also, PC6 connects to a "Low fuel" icon, which should light if the level is 4 or less. ]
+ *	Lab Section: 024
+ *	Assignment: Lab #03  Exercise #3
+ *	Exercise Description: [ In addition to the above, PA4 is 1 if a key is in
+        the ignition, PA5 is one if a driver is seated, and PA6 is 1 if the driver's
+        seatbelt is fastened. PC7 should light a "Fasten seatbelt" icon if a key
+        is in the ignition, the driver is seated, but the belt is not fastened. ]
  *
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
@@ -22,11 +21,14 @@ int main(void) {
     DDRC = 0xFF; PORTC = 0x00;  // Sets PORTC as output
 
     unsigned char tmpA = 0x00;
+    unsigned char tmpB = 0x00;  // Temp Variable that stores P4 P5 & P6
     unsigned char tmpC = 0x00;
 
     /* Insert your solution below */
     while (1) {
         tmpA = PINA;
+        tmpB = PINA & 0x70;     // Masks allows P4 P5 & P6 through
+        tmpA = PINA & 0x8F;     // Masks P4-P6
 
         if (tmpA == 0x00) { tmpC = 0x40; }
 
@@ -41,6 +43,10 @@ int main(void) {
         else if (tmpA <= 0x0C) { tmpC = 0x03E; }
 
         else { tmpC = 0x3F; }
+
+        if (tmpB == 0x30) { //Check for seated driver and key in ignition
+            tmpC = tmpC | 0x80; //Activates P7 for 'Fasten Seatbelt' light
+        }
 
         PORTC = tmpC;
 
